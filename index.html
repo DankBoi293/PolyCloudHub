@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Welcome to Poly CloudHub</title>
+		<link rel="stylesheet preconnect prefetch" type="text/css" href="https://flightlib.foxglovedev.repl.co/library/raw/main.css"></link>
+		<link rel="stylesheet preconnect prefetch" type="text/css" href="style.css"></link>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script>
+			onload = ()=>{
+				$(document).ready(function(){
+					$(document).ajaxStart(function(){
+						$("#load").css("display", "block");
+					});
+
+					$(document).ajaxComplete(function(){
+						$("#load").css("display", "none");
+					});
+					$("#icon").click(function(){
+						$("#content").load("app.html");
+					});
+					$("#recents").click(function(){
+						$("#content").load("recent.html");
+					});
+					$("#content").load("app.html");
+				});
+			}
+			</script>
+	</head>
+	<body>
+		<div id="load" class="progress" style="width: 100%; position: absolute; top: 0; left: 0;">
+			<div class="indeterminate" style="background-color: rgb(97,33,255);">
+			</div>
+		</div>
+		<nav class="nav">
+      <a id="icon"><img class="brand" rel="preconnect prefetch" src="images/logo.png"></img></a>
+			<div class="nav-item">
+				<a class="a" id="recents">Recent</a>
+			</div>
+			<div class="nav-item" id="login" style="cursor: pointer; position: absolute; right: 0px; margin-left: 10px; margin-right: 10px;">
+				<div class="avatar" style='height: 40px; width: 40px; background-image: url("icons/avatar.png");'></div>
+			</div>
+    </nav>
+		<div id="content">
+		</div>
+	</body>
+</html>
